@@ -104,16 +104,20 @@ function longestString(strings) {
 
 // Return whether a word is in an array
 function doesWordExist(wordsArr, word) {
+  if (typeof wordsArr != 'object') {
+    return false;
+  }
   return wordsArr.includes(word);
 }
 
 // Finding the first non-duplicate (non-repeating) word in an array
 function findUnique(wordsArr) {
+
   if(wordsArr.length === 0) {
     return false;
   }
 
-  if (typeof numbers != 'object') {
+  if (typeof wordsArr != 'object') {
     return false;
   }
 
@@ -133,11 +137,28 @@ function findUnique(wordsArr) {
 
 // Get the fullName from the object { firstName: 'Tony', lastName: 'Stark'}
 function getFullName(personObj) {
+  if (typeof personObj != 'object') {
+    return false;
+  }
+
+  if(personObj.firstName === undefined || personObj.lastName === undefined){
+    return false;
+  }
+
   return personObj.firstName + " " + personObj.lastName;
 }
 
 // Return the largest number in a two dimensional array
-function maxTwoDimArray(matrix) {
+function maxTwoDimArray(matrix) { 
+
+  if(matrix.length === 0) {
+    return false;
+  }
+
+  if (typeof matrix != 'object') {
+    return false;
+  }
+
   let max = 0;
   for(let i=0; i<matrix.length; i++){
     for(let j=0; j<matrix[i].length; j++){
