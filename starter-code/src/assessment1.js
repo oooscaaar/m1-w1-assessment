@@ -84,8 +84,7 @@ function maxOfArray(numbers) {
 
 // Return the longest string in an array
 function longestString(strings) {
-
-  if(strings.length === 0) {
+  if (strings.length === 0) {
     return false;
   }
 
@@ -93,12 +92,15 @@ function longestString(strings) {
     return false;
   }
 
-  let longestWord = "";
-  strings.forEach(word => {
-    if(word.length > longestWord.length){
-      longestWord = word;
+  let longestWord = '';
+  strings.forEach((word, index) => {
+    if (word !== null && word !== undefined) {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
     }
   });
+
   return longestWord;
 }
 
