@@ -40,24 +40,39 @@ function maxOfThreeNumbers(a, b, c) {
 
 // Calculate the sum of an array of numbers
 function sumArray(numbers) {
-  if(typeof numbers != 'object'){
+  if (typeof numbers != 'object') {
     return false;
   }
 
-  numbers.forEach(number => {
-    if (typeof number != 'number'){
-      return false;
+  let undef = false;
+
+  numbers.forEach((number) => {
+    if (typeof number !== 'number') {
+      undef = true;
     }
   });
 
-  if(numbers.length === 0) {
+  if (undef) {
+    return false;
+  }
+
+  if (numbers.length === 0) {
     return 0;
   }
-  return numbers.reduce((acc, sum)=> acc+= sum)
+  return numbers.reduce((acc, sum) => (acc += sum));
 }
 
 // Return the largest number of a non-empty array
 function maxOfArray(numbers) {
+
+  if(numbers.length === 0) {
+    return false;
+  }
+
+  if (typeof numbers != 'object') {
+    return false;
+  }
+
   let max = 0;
   numbers.forEach(number => {
     if(number > max){
@@ -69,6 +84,15 @@ function maxOfArray(numbers) {
 
 // Return the longest string in an array
 function longestString(strings) {
+
+  if(strings.length === 0) {
+    return false;
+  }
+
+  if (typeof strings != 'object') {
+    return false;
+  }
+
   let longestWord = "";
   strings.forEach(word => {
     if(word.length > longestWord.length){
@@ -88,6 +112,11 @@ function findUnique(wordsArr) {
   if(wordsArr.length === 0) {
     return false;
   }
+
+  if (typeof numbers != 'object') {
+    return false;
+  }
+
   let isUnique = true;
   for (let i = 0; i < wordsArr.length - 1; i++) {
     for (let j = i + 1; j < wordsArr.length; j++) {
